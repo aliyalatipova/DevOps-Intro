@@ -1,6 +1,8 @@
 name: Lab3 CI
 
-on: [push]
+on:
+  push:
+  workflow_dispatch:   # позволяет запускать вручную
 
 jobs:
   build:
@@ -13,3 +15,13 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: Gather system information
+        run: |
+          echo "=== OS Information ==="
+          uname -a
+          echo "=== CPU Information ==="
+          lscpu | grep "Model name" || echo "lscpu not available"
+          echo "=== Memory Information ==="
+          free -h
+          echo "=== Disk Usage ==="
+          df -h
