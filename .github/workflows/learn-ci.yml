@@ -1,8 +1,25 @@
 name: CI
-on: [push]
+on:
+  push:
+  workflow_dispatch:
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello World"
-      - run: date
+      - uses: actions/checkout@v4
+      - name: Basic info
+        run: echo "Hello, world! Today is $(date)"
+      - name: System information
+        run: |
+          echo "=== OS Information ==="
+          uname -a
+          echo "=== CPU cores ==="
+          nproc
+          echo "=== Memory ==="
+          free -h
+          echo "=== Disk space ==="
+          df -h
+          echo "=== Runner context ==="
+          echo "Runner OS: ${{ runner.os }}"
+          echo "Runner temp directory: ${{ runner.temp }}"
+          echo "Runner workspace: ${{ runner.workspace }}"
