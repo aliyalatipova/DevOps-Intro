@@ -1,9 +1,8 @@
-name: learn-github-actions
+name: CI
 on: [push]
 jobs:
-  check-bats-version:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: echo "Hello, world! Today is $(date)"
-      - run: echo "Job status: ${{ job.status }}"
+      - run: echo "Hello World"
+      - run: date
