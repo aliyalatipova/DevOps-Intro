@@ -53,8 +53,6 @@ Complete job name: test
 - **Runners** – виртуальные машины, предоставляемые GitHub.
 - **Triggers** – событие `push` запускает workflow.
 
-**Trigger reason:** pushed commit to branch `feature/lab3`.
-
 
 **Link**
 https://github.com/aliyalatipova/DevOps-Intro/actions/runs/22069562535/job/63770228391
@@ -64,7 +62,6 @@ https://github.com/aliyalatipova/DevOps-Intro/actions/runs/22069562535/job/63770
 
 
 ### Changes Made to the Workflow File
-An additional step was added to collect detailed system information about the GitHub-hosted runner. This step runs standard Linux commands (`uname`, `lscpu`, `free`, `df`) to gather operating system details, hardware specifications, memory usage, and disk information.
 
 ### Gathered system information from runner
 ```
@@ -94,9 +91,6 @@ Runner workspace: /home/runner/work/DevOps-Intro
 ```
 
 
-### Сравнение автоматического и ручного запуска
-- **Автоматический запуск (push):** происходит при каждом пуше в репозиторий. Удобен для непрерывной интеграции – каждая новая версия кода сразу проверяется.
-- **Ручной запуск (workflow_dispatch):** инициируется пользователем из интерфейса GitHub. Позволяет выполнить workflow в любое время без нового коммита, например, для диагностики, повторного запуска с теми же параметрами или выполнения задач по требованию.
 
 **Основные различия:**
 - Автоматический запуск обеспечивает быструю обратную связь, но происходит часто.
